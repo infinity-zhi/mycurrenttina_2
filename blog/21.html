@@ -1,0 +1,519 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-cn" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>QrCode二维码的原理、常识 · 兔子二维码</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="兔子二维码">
+        
+        
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="QrCode二维码的原理、常识"/>
+<meta property="og:author" content="兔子二维码" />
+<meta property="og:release_date" content="Mon Dec 12 2016 08:00:00 GMT+0800 (GMT+08:00)"/>
+
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="233.html" />
+    
+    
+    <link rel="prev" href="65.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li>
+				<a href="/" target="">制作二维码</a>
+			</li><li>
+				<a href="/decode/" target="">在线解码工具</a>
+			</li><li>
+				<a href="/blog/" target="">二维码知识</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    导航
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="65.html">
+            
+                <a href="65.html">
+            
+                    
+                    什么是二维码？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.2" data-path="21.html">
+            
+                <a href="21.html">
+            
+                    
+                    QrCode二维码的原理、常识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="233.html">
+            
+                <a href="233.html">
+            
+                    
+                    QrCode二维码最大容量是多少？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="247.html">
+            
+                <a href="247.html">
+            
+                    
+                    什么是二维码的容错率
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" data-path="292.html">
+            
+                <a href="292.html">
+            
+                    
+                    什么是静态码和活码？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.6" data-path="225.html">
+            
+                <a href="225.html">
+            
+                    
+                    视觉二维码 Visual Qr Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.7" data-path="378.html">
+            
+                <a href="378.html">
+            
+                    
+                    什么是矢量二维码？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.8" data-path="327.html">
+            
+                <a href="327.html">
+            
+                    
+                    一维条形码与二维码的对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.9" data-path="111.html">
+            
+                <a href="111.html">
+            
+                    
+                    二维码之电子名片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.10" data-path="125.html">
+            
+                <a href="125.html">
+            
+                    
+                    二维码之扫码连WiFi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.11" data-path="323.html">
+            
+                <a href="323.html">
+            
+                    
+                    二维码之溯源与防伪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.12" data-path="252.html">
+            
+                <a href="252.html">
+            
+                    
+                    二维码之扫码支付
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.13" data-path="332.html">
+            
+                <a href="332.html">
+            
+                    
+                    区分“收款码”与“付款码”
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.14" data-path="301.html">
+            
+                <a href="301.html">
+            
+                    
+                    经常扫码手机会中毒吗？了解二维码"病毒"的真相
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.15" data-path="424.html">
+            
+                <a href="424.html">
+            
+                    
+                    汉信码——中国自主开发的二维码标准
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.16" data-path="444.html">
+            
+                <a href="444.html">
+            
+                    
+                    汉信码、QR码等常用二维码数据对比
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.17" data-path="560.html">
+            
+                <a href="560.html">
+            
+                    
+                    小程序专用二维码——小程序码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="message/">
+            
+                <a href="message/">
+            
+                    
+                    关于本站
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+<!--     <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li> -->
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >QrCode二维码的原理、常识</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+					<section class="normal markdown-section">
+						
+						<p>&#x5173;&#x4E8E;QrCode&#x7684;&#x4E00;&#x4E9B;&#x5E38;&#x8BC6;&#xFF0C;&#x539F;&#x7406;&#x3001;&#x5BB9;&#x91CF;&#x3001;&#x5BB9;&#x9519;&#x7387;&#x7B49;</p>
+<h2 id="&#x4E8C;&#x7EF4;&#x7801;&#x539F;&#x7406;">&#x4E8C;&#x7EF4;&#x7801;&#x539F;&#x7406;</h2>
+<p>&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#x662F;&#x5229;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x6765;&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x7684;&#x3002;&#x901A;&#x5E38;&#x7531;&#x6B63;&#x65B9;&#x5F62;&#x77E9;&#x9635;&#x50CF;&#x7D20;&#x70B9;&#x7EC4;&#x6210;&#x3002;&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#x5F62;&#x72B6;&#x3002;&#x5B83;&#x4E00;&#x5171;&#x7531;21&#x884C;&#xFF0C;21&#x5217;&#x7684;&#x5C0F;&#x77E9;&#x5F62;&#x7EC4;&#x6210;&#x3002;&#x77E9;&#x9635;&#x4E2D;&quot;&#x9ED1;&#x8272;&#x70B9;&quot;&#x8868;&#x793A;&#x4E8C;&#x8FDB;&#x5236;&quot;1&quot;&#xFF0C; &quot;&#x767D;&#x8272;&#x70B9;&quot;&#x8868;&#x793A;&#x4E8C;&#x8FDB;&#x5236;&quot;0&quot;&#x3002;&#x8FD9;&#x4E9B; 1 &#x548C; 0 &#x6392;&#x5217;&#x7EC4;&#x5408;&#x5C31;&#x5F62;&#x6210;&#x4E86;&#x4E8C;&#x7EF4;&#x7801;&#x3002;</p>
+<p>&#x9664;&#x4E86; 1 &#x548C; 0 &#x7684;&#x50CF;&#x7D20;&#x70B9;&#x4E4B;&#x5916;&#xFF0C;&#x4E8C;&#x7EF4;&#x7801;&#x8FD8;&#x6709;&#x4E09;&#x4E2A;&#x50CF;&#x773C;&#x775B;&#x4E00;&#x6837;&#x7684;&#x5927;&#x9ED1;&#x8272;&#x5757;&#xFF0C;&#x53EB;&#x505A; &#x5B9A;&#x4F4D;&#x70B9;&#x3002;&#x8FD9;&#x662F;&#x4E8C;&#x7EF4;&#x7801;&#x8BC6;&#x522B;&#x65F6;&#x7528;&#x6765;&#x5BF9;&#x56FE;&#x50CF;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D;&#x7684;&#xFF0C;&#x4E00;&#x5B9A;&#x4E0D;&#x80FD;&#x906E;&#x6321;&#x3002;&#x5426;&#x5219;&#x5C06;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x3002;</p>
+<p><img src="imgs/p21_1.jpg" alt=""></p>
+<h2 id="&#x4E8C;&#x7EF4;&#x7801;&#x5C3A;&#x5BF8;&#xFF08;&#x7248;&#x672C;&#xFF09;">&#x4E8C;&#x7EF4;&#x7801;&#x5C3A;&#x5BF8;&#xFF08;&#x7248;&#x672C;&#xFF09;</h2>
+<p>&#x4E8C;&#x7EF4;&#x7801;&#x4E00;&#x5171;&#x6709;40&#x4E2A;&#x5C3A;&#x5BF8;&#xFF0C;&#x662F;&#x6839;&#x636E;&#x884C;&#x6570;&#x3001;&#x5217;&#x6570;&#x6765;&#x533A;&#x5206;&#x7684;&#x3002;&#x5B98;&#x65B9;&#x79F0;&#x4E3A;Version&#x3002;</p>
+<ul>
+<li><p>Version 1&#xFF08;&#x5373;&#x5C3A;&#x5BF8;1&#xFF09;&#x662F; 21 x 21&#x7684;&#x77E9;&#x9635;&#xFF08;&#x5373;&#x4E8C;&#x7EF4;&#x7801;&#x6709;21&#x884C;&#xFF0C;21&#x5217;&#x7684;&#x5C0F;&#x77E9;&#x5F62;&#x7EC4;&#x6210;&#xFF09;&#xFF08;&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x4E00;&#x4E2A;Version 1&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#xFF09;</p>
+<p><img src="imgs/p21_3.jpg" alt=""></p>
+</li>
+<li><p>Version 2&#xFF08;&#x5373;&#x5C3A;&#x5BF8;1&#xFF09;&#x662F; 25 x 25&#x7684;&#x77E9;&#x9635;</p>
+</li>
+<li>&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;...</li>
+<li>Version 40&#xFF08;&#x5373;&#x5C3A;&#x5BF8;40&#xFF09;&#x662F;177 x 177 &#x7684;&#x77E9;&#x9635;&#x3002;</li>
+</ul>
+<p>&#x4E8C;&#x7EF4;&#x7801;Version&#x8D8A;&#x9AD8;&#x5B58;&#x50A8;&#x7684;&#x4FE1;&#x606F;&#x8D8A;&#x591A;&#x3002;&#x5BB9;&#x91CF;&#x6700;&#x9AD8;&#x7684;&#x662F;version 40&#x3001;&#x5BB9;&#x9519;&#x7387;&#x4E3A;&quot;L&quot;&#x7684;&#x5C3A;&#x5BF8;&#x3002;&#x53EF;&#x5B58;&#x50A8; 2953 &#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;&#xFF08;&#x7EA6;2.9KB&#xFF09;</p>
+<h2 id="&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF08;&#x5728;utf-8&#x7F16;&#x7801;&#x4E0B;&#xFF09;">&#x5B58;&#x50A8;&#x4FE1;&#x606F;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF08;&#x5728;UTF-8&#x7F16;&#x7801;&#x4E0B;&#xFF09;</h2>
+<p>&#x4E8C;&#x7EF4;&#x7801;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x591A;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x3001;&#x5B57;&#x7B26;&#x7C7B;&#x578B;&#x3002;&#x4E0D;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x5B58;&#x50A8;&#x5BB9;&#x91CF;&#x4E5F;&#x4E0D;&#x540C;&#x3002;</p>
+<ul>
+<li>UTF-8 &#x5B57;&#x8282;&#x6570;&#xFF1A;2953 &#x5B57;&#x8282;&#xFF08;&#x7EA6;2.9KB&#xFF09;</li>
+<li>UTF-8 &#x6570;&#x5B57;/&#x5B57;&#x6BCD;&#x6570;&#x636E;&#xFF1A;2953 &#x4E2A;</li>
+<li>UTF-8 &#x6C49;&#x5B57;&#xFF1A;2953/3 = 984 &#x4E2A;</li>
+</ul>
+<h2 id="&#x4E8C;&#x7EF4;&#x7801;&#x7EA0;&#x9519;&#x80FD;&#x529B;&#xFF08;&#x5BB9;&#x9519;&#x7387;&#xFF09;">&#x4E8C;&#x7EF4;&#x7801;&#x7EA0;&#x9519;&#x80FD;&#x529B;&#xFF08;&#x5BB9;&#x9519;&#x7387;&#xFF09;</h2>
+<p>&#x200B;&#x4E8C;&#x7EF4;&#x7801;&#x5177;&#x5907;&#x5F88;&#x5F3A;&#x7684;&#x7EA0;&#x9519;&#x80FD;&#x529B;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x88AB;&#x906E;&#x6321;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x80FD;&#x88AB;&#x8BBE;&#x5907;&#x6B63;&#x5E38;&#x8BC6;&#x522B;&#x3002;&#x5229;&#x7528;&#x8FD9;&#x4E00;&#x7279;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x5728;&#x4E8C;&#x7EF4;&#x7801;&#x4E2D;&#x95F4;&#x52A0;&#x4E0A;Logo&#xFF0C;&#x5E76;&#x4E0D;&#x5F71;&#x54CD;&#x5B83;&#x7684;&#x8BFB;&#x53D6;&#x548C;&#x8BC6;&#x522B;&#x3002;</p>
+<p>&#x5BB9;&#x9519;&#x7387;&#x5C31;&#x662F;&#x6765;&#x8861;&#x91CF;&#x4E8C;&#x7EF4;&#x7801;&#x7EA0;&#x9519;&#x80FD;&#x529B;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x7EA0;&#x9519;&#x7B49;&#x7EA7;&#x5BF9;&#x5E94;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x5BB9;&#x9519;&#x7387;&#x3002;</p>
+<ul>
+<li>L&#x7EA7;&#xFF1A;&#x5BB9;&#x9519;&#x7387;7%&#xFF0C;&#x53EF;&#x88AB;&#x906E;&#x6321;7%&#xFF0C;&#x8868;&#x793A;&#x5373;&#x4F7F;&#x6761;&#x7801;&#x88AB;&#x906E;&#x6321;7%&#xFF0C;&#x4E5F;&#x80FD;&#x88AB;&#x6B63;&#x5E38;&#x8BC6;&#x522B;&#x3002;</li>
+<li>M&#x7EA7;&#xFF1A;&#x5BB9;&#x9519;&#x7387;15%&#xFF0C;&#x53EF;&#x88AB;&#x906E;&#x6321;15%</li>
+<li>Q&#x7EA7;&#xFF1A;&#x5BB9;&#x9519;&#x7387;25%&#xFF0C;&#x53EF;&#x88AB;&#x906E;&#x6321;25%</li>
+<li>H&#x7EA7;&#xFF1A;&#x5BB9;&#x9519;&#x7387;30%&#xFF0C;&#x53EF;&#x88AB;&#x906E;&#x6321;30%</li>
+</ul>
+<h2 id="&#x4E8C;&#x7EF4;&#x7801;&#x7ED3;&#x6784;">&#x4E8C;&#x7EF4;&#x7801;&#x7ED3;&#x6784;</h2>
+<p><img src="imgs/p21_2.jpg" alt=""></p>
+<ul>
+<li>&#x5C3A;&#x5BF8;&#xFF08;Version&#xFF09;&#x4FE1;&#x606F;&#xFF1A;QrCode&#x5171;&#x6709;40&#x79CD;&#x5C3A;&#x5BF8;&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x4ECE;21&#xD7;21&#xFF08;Version 1&#xFF09;&#xFF0C;&#x5230;177&#xD7;177&#xFF08;&#x89C4;&#x683C;40&#xFF09;</li>
+<li>&#x683C;&#x5F0F;&#x4FE1;&#x606F;&#xFF1A;&#x8868;&#x793A;&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x7EA0;&#x9519;&#x7EA7;&#x522B;&#xFF0C;&#x5206;&#x4E3A;L&#x3001;M&#x3001;Q&#x3001;H</li>
+<li>&#x6570;&#x636E;&#x548C;&#x7EA0;&#x9519;&#x7801;&#x5B57;&#xFF1A;&#x5B9E;&#x9645;&#x4FDD;&#x5B58;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#x4FE1;&#x606F;&#xFF0C;&#x548C;&#x7EA0;&#x9519;&#x7801;&#x5B57;&#xFF08;&#x7528;&#x4E8E;&#x4FEE;&#x6B63;&#x4E8C;&#x7EF4;&#x7801;&#x635F;&#x574F;&#x5E26;&#x6765;&#x7684;&#x9519;&#x8BEF;&#xFF09;</li>
+<li>&#x5B9A;&#x4F4D;&#x70B9;&#x3001;&#x5B9A;&#x65F6;&#x6807;&#x5FD7;&#x3001;&#x6821;&#x6B63;&#x56FE;&#x5F62;&#xFF1A;&#x7528;&#x4E8E;&#x5BF9;&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x5B9A;&#x4F4D;&#xFF0C;&#x786E;&#x5B9A;&#x4E8C;&#x7EF4;&#x7801;&#x7684;&#x5185;&#x5BB9;&#x533A;&#x57DF;</li>
+</ul>
+
+						
+					</section>
+					
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="65.html" class="navigation navigation-prev " aria-label="Previous page: 什么是二维码？">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="233.html" class="navigation navigation-next " aria-label="Next page: QrCode二维码最大容量是多少？">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"layout":"post","title":"QrCode二维码的原理、常识","date":"2016-12-12T00:00:00.000Z","tags":["二维码","二维码知识","容错率"],"level":"1.1.2","depth":2,"next":{"title":"QrCode二维码最大容量是多少？","level":"1.1.3","depth":2,"path":"233.md","ref":"233.md","articles":[]},"previous":{"title":"什么是二维码？","level":"1.1.1","depth":2,"path":"65.md","ref":"65.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-sharing","-search","theme-fexa","chapter-fold"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"theme-fexa":{"search-placeholder":"输入关键字搜索","logo":"./logo.png","favicon":"./favicon.ico"},"chapter-fold":{},"highlight":{},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","author":"兔子二维码","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"index.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"/","name":"制作二维码"},{"url":"/decode/","name":"在线解码工具"},{"url":"/blog/","name":"二维码知识"}]}},"title":"兔子二维码","language":"zh-cn","output.name":"blog","gitbook":"3.2.3","description":""},"file":{"path":"21.md","mtime":"2021-06-27T12:54:22.103Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T13:59:55.262Z"},"basePath":".","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+
